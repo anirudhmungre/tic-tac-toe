@@ -27,7 +27,7 @@
       {{ playerStore.p1.name }} and {{ playerStore.p2.name }} DRAW!🔷
     </h2>
   </div>
-  <div class="grid grid-cols-2 w-fit bg-slate-700 rounded-xl text-5xl text-left p-4">
+  <div class="grid grid-cols-2 w-full bg-slate-700 rounded-xl text-5xl text-left p-4">
     <h1 class="font-bold text-6xl grid col-span-2 mb-4">Score Sheet</h1>
     <h2>{{ playerStore.p1.name }}</h2>
     <h2 class="text-right">{{ playerStore.p1.score }}</h2>
