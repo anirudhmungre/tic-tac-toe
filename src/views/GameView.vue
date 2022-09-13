@@ -40,8 +40,9 @@
 import { playerStore } from "@/stores/player";
 import { gameStore } from "@/stores/game";
 import { mapStores } from "pinia";
+import { defineComponent } from "vue";
 
-export default {
+export default defineComponent({
   data() {
     return {
       canIncrementScore: true,
@@ -83,5 +84,5 @@ export default {
       this.gameStore.$reset();
     },
   },
-};
+});
 </script>

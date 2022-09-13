@@ -28,8 +28,9 @@
 <script lang="ts">
 import { mapStores } from "pinia";
 import { playerStore } from "@/stores/player";
+import { defineComponent } from "vue";
 
-export default {
+export default defineComponent({
   data() {
     return {
       nameP1: "",
@@ -48,5 +49,5 @@ export default {
       }
     },
   },
-};
+});
 </script>

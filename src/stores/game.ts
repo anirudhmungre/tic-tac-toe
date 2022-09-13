@@ -3,7 +3,7 @@ import { defineStore } from "pinia";
 export const gameStore = defineStore("game", {
   state: () => ({
     board: new Array(9).fill(0),
-    currentPlayer: 1,
+    currentPlayer: 1 as 1 | 2,
   }),
   getters: {
     boardFull: (state) => state.board.every((v) => v !== 0),
@@ -26,7 +26,9 @@ export const gameStore = defineStore("game", {
           )
       );
     },
-    gameOver: (state) => state.boardFull || state.gameWon,
+    gameOver(): boolean  {
+      return this.boardFull || this.gameWon
+    },
   },
   actions: {
     makeMove(index: number) {
