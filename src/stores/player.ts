@@ -1,15 +1,15 @@
 import { defineStore } from "pinia";
 
-export const playerStore = defineStore('player', {
+export const playerStore = defineStore("player", {
   state: () => ({
     p1: {
-      name: '',
+      name: "",
       score: 0,
     },
     p2: {
-      name: '',
+      name: "",
       score: 0,
-    }
+    },
   }),
   actions: {
     incrementScore(player: 1 | 2) {
@@ -17,6 +17,6 @@ export const playerStore = defineStore('player', {
     },
     setName(player: 1 | 2, name: string) {
       this[`p${player}`].name = name;
-    }
-  }
+    },
+  },
 });
