@@ -12,7 +12,7 @@
       <button
         class="bg-slate-900 h-36 w-36 rounded-lg"
         v-for="(box, index) in gameStore.board"
-        :key="box"
+        :key="index"
         @click="makeMove(index)"
       >
         {{ getBoxIcon(box) }}
