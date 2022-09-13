@@ -26,8 +26,8 @@ export const gameStore = defineStore("game", {
           )
       );
     },
-    gameOver(): boolean  {
-      return this.boardFull || this.gameWon
+    gameOver(): boolean {
+      return this.boardFull || this.gameWon;
     },
   },
   actions: {
