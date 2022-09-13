@@ -1,13 +1,18 @@
 <template>
-  <h1 v-if="!gameStore.gameOver">It is {{ getCurrentPlayer() }}'s turn! {{ getBoxIcon(gameStore.currentPlayer) }}</h1>
-  <h1 v-else-if="gameStore.gameWon">{{ getCurrentPlayer() }} WINS!✅</h1>
-  <h1 v-else>{{ playerStore.p1.name }} and {{ playerStore.p2.name }} DRAW!🔷</h1>
-  <h2>{{ playerStore.p1.name }}: {{ playerStore.p1.score }}</h2>
-  <h2>{{ playerStore.p2.name }}: {{ playerStore.p2.score }}</h2>
-  <div class="board">
-    <button class="box" v-for="(box, index) in gameStore.board" @click="makeMove(index)">{{ getBoxIcon(box) }}</button>
+  <div class="text-5xl">
+    <h1 class="font-bold m-2 text-6xl">TIC-TAC-TOE <button :class="{ 'animate-pulse': gameStore.gameOver }" @click="reset">🔄</button></h1>
+    <div class="grid grid-cols-3 gap-4 place-items-center w-fit bg-teal-800 rounded-lg p-4 m-4">
+      <button class="bg-slate-900 h-36 w-36 rounded-lg" v-for="(box, index) in gameStore.board" @click="makeMove(index)">{{ getBoxIcon(box) }}</button>
+    </div>
+    <h2 v-if="!gameStore.gameOver">It is {{ getCurrentPlayer() }}'s turn! {{ getBoxIcon(gameStore.currentPlayer) }}</h2>
+    <h2 v-else-if="gameStore.gameWon">{{ getCurrentPlayer() }} WINS!✅</h2>
+    <h2 v-else>{{ playerStore.p1.name }} and {{ playerStore.p2.name }} DRAW!🔷</h2>
   </div>
-  <button class="reset-btn" v-if="gameStore.gameOver" @click="reset">RESET</button>
+  <div class="bg-slate-700 rounded-xl text-5xl text-left p-4 grid grid-cols-2">
+    <h1 class="font-bold text-6xl grid col-span-2 mb-4">Score Sheet</h1>
+    <h2>{{ playerStore.p1.name }}</h2><h2 class="text-right">{{ playerStore.p1.score }}</h2>
+    <h2>{{ playerStore.p2.name }}</h2><h2 class="text-right">{{ playerStore.p2.score }}</h2>
+  </div>
 </template>
 
 <script lang="ts">
@@ -59,27 +64,3 @@
     }
   }
 </script>
-
-<style>
-  .board {
-    width: 632px;
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 16px 16px;
-    align-items: center;
-    justify-items: center;
-    background-color: #009B77;
-  }
-
-  .box {
-    height: 200px;
-    width: 200px;
-    font-size: xx-large;
-    background-color: aqua;
-  }
-
-  .box:hover {
-    background-color: teal;
-  }
-
-</style>

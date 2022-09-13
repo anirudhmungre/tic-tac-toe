@@ -3,15 +3,7 @@ import { RouterView } from "vue-router";
 </script>
 
 <template>
-  <main class="container">
+  <main class="grid flex-grow justify-center items-center text-center text-slate-400 bg-slate-900 h-screen">
     <RouterView />
   </main>
 </template>
-
-<style>
-  .container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-  }
-</style>
